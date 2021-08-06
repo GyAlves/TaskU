@@ -6,15 +6,9 @@
         <Button description="Create Task" action="create" />
       </div>
       <div class="task_container">
+        <div class="options"></div>
         <div class="tasks">
-          <span>{{ totalTasks }} Tasks today</span>
           <div v-for="task in tasks" :key="task.id">
-            <Task @do-task="doTask" :task="task" />
-          </div>
-        </div>
-        <div class="done_tasks">
-          <span>Dones tasks</span>
-          <div v-for="task in doneTasks" :key="task.id">
             <Task @do-task="doTask" :task="task" />
           </div>
         </div>
@@ -132,13 +126,17 @@ export default {
 
   display: flex;
   flex-direction: row;
-  padding-top: 3em;
-  padding-left: 5em;
+  justify-content: center;
+  align-items: center;
 }
 
 #app .container .task_container .tasks {
-  width: 70%;
+  width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #app .container .task_container .tasks span {
